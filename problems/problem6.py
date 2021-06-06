@@ -1,5 +1,3 @@
-largest = 21
-
 def findSum(num):
     return int(num * (num + 1) / 2)
 

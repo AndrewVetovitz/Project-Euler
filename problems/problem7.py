@@ -1,21 +1,30 @@
-largest = 21
 
-def findSum(num):
-    return int(num * (num + 1) / 2)
+import math
 
-def findSumSquared(num):
-    return int((num * (num + 1) * (2 * num + 1)) / 6)
+def findPrimes(totalPrimes):
+    primes = [2, 3]
+    curr = 4
+
+    while len(primes) < totalPrimes:
+        bound = math.sqrt(curr)
+
+        for prime in primes:
+            if prime > bound:
+                primes.append(curr)
+                break
+
+            if curr % prime == 0:
+                break
+
+        curr += 1
+    
+    return primes
 
 def main():
-    num = 100
+    primes = findPrimes(10001)
 
-    sum = findSum(num)
-    sumSquared = sum * sum
-
-    squaredSum = findSumSquared(num)
-
-    print(sumSquared - squaredSum)
+    # print(primes)
+    print("len of list: {}".format(len(primes)))
+    print(primes[-1])
 
 main()
-
-
